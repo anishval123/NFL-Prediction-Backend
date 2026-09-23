@@ -1,0 +1,482 @@
+[
+  {
+    "abbr": "ARI",
+    "name": "Arizona Cardinals",
+    "city": "Arizona",
+    "mascot": "Cardinals",
+    "conference": "NFC",
+    "division": "NFC West",
+    "stadium": "State Farm Stadium",
+    "colors": {
+      "primary": "#97233F",
+      "secondary": "#FFB612",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/ARI.svg"
+  },
+  {
+    "abbr": "ATL",
+    "name": "Atlanta Falcons",
+    "city": "Atlanta",
+    "mascot": "Falcons",
+    "conference": "NFC",
+    "division": "NFC South",
+    "stadium": "Mercedes-Benz Stadium",
+    "colors": {
+      "primary": "#A71930",
+      "secondary": "#000000",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/ATL.svg"
+  },
+  {
+    "abbr": "BAL",
+    "name": "Baltimore Ravens",
+    "city": "Baltimore",
+    "mascot": "Ravens",
+    "conference": "AFC",
+    "division": "AFC North",
+    "stadium": "M&T Bank Stadium",
+    "colors": {
+      "primary": "#241773",
+      "secondary": "#9E7C0C",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/BAL.svg"
+  },
+  {
+    "abbr": "BUF",
+    "name": "Buffalo Bills",
+    "city": "Buffalo",
+    "mascot": "Bills",
+    "conference": "AFC",
+    "division": "AFC East",
+    "stadium": "Highmark Stadium",
+    "colors": {
+      "primary": "#00338D",
+      "secondary": "#C60C30",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/BUF.svg"
+  },
+  {
+    "abbr": "CAR",
+    "name": "Carolina Panthers",
+    "city": "Carolina",
+    "mascot": "Panthers",
+    "conference": "NFC",
+    "division": "NFC South",
+    "stadium": "Bank of America Stadium",
+    "colors": {
+      "primary": "#0085CA",
+      "secondary": "#101820",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/CAR.svg"
+  },
+  {
+    "abbr": "CHI",
+    "name": "Chicago Bears",
+    "city": "Chicago",
+    "mascot": "Bears",
+    "conference": "NFC",
+    "division": "NFC North",
+    "stadium": "Soldier Field",
+    "colors": {
+      "primary": "#0B162A",
+      "secondary": "#C83803",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/CHI.svg"
+  },
+  {
+    "abbr": "CIN",
+    "name": "Cincinnati Bengals",
+    "city": "Cincinnati",
+    "mascot": "Bengals",
+    "conference": "AFC",
+    "division": "AFC North",
+    "stadium": "Paycor Stadium",
+    "colors": {
+      "primary": "#FB4F14",
+      "secondary": "#000000",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/CIN.svg"
+  },
+  {
+    "abbr": "CLE",
+    "name": "Cleveland Browns",
+    "city": "Cleveland",
+    "mascot": "Browns",
+    "conference": "AFC",
+    "division": "AFC North",
+    "stadium": "Huntington Bank Field",
+    "colors": {
+      "primary": "#311D00",
+      "secondary": "#FF3C00",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/CLE.svg"
+  },
+  {
+    "abbr": "DAL",
+    "name": "Dallas Cowboys",
+    "city": "Dallas",
+    "mascot": "Cowboys",
+    "conference": "NFC",
+    "division": "NFC East",
+    "stadium": "AT&T Stadium",
+    "colors": {
+      "primary": "#003594",
+      "secondary": "#869397",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/DAL.svg"
+  },
+  {
+    "abbr": "DEN",
+    "name": "Denver Broncos",
+    "city": "Denver",
+    "mascot": "Broncos",
+    "conference": "AFC",
+    "division": "AFC West",
+    "stadium": "Empower Field at Mile High",
+    "colors": {
+      "primary": "#FB4F14",
+      "secondary": "#002244",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/DEN.svg"
+  },
+  {
+    "abbr": "DET",
+    "name": "Detroit Lions",
+    "city": "Detroit",
+    "mascot": "Lions",
+    "conference": "NFC",
+    "division": "NFC North",
+    "stadium": "Ford Field",
+    "colors": {
+      "primary": "#0076B6",
+      "secondary": "#B0B7BC",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/DET.svg"
+  },
+  {
+    "abbr": "GB",
+    "name": "Green Bay Packers",
+    "city": "Green Bay",
+    "mascot": "Packers",
+    "conference": "NFC",
+    "division": "NFC North",
+    "stadium": "Lambeau Field",
+    "colors": {
+      "primary": "#203731",
+      "secondary": "#FFB612",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/GB.svg"
+  },
+  {
+    "abbr": "HOU",
+    "name": "Houston Texans",
+    "city": "Houston",
+    "mascot": "Texans",
+    "conference": "AFC",
+    "division": "AFC South",
+    "stadium": "NRG Stadium",
+    "colors": {
+      "primary": "#03202F",
+      "secondary": "#A71930",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/HOU.svg"
+  },
+  {
+    "abbr": "IND",
+    "name": "Indianapolis Colts",
+    "city": "Indianapolis",
+    "mascot": "Colts",
+    "conference": "AFC",
+    "division": "AFC South",
+    "stadium": "Lucas Oil Stadium",
+    "colors": {
+      "primary": "#002C5F",
+      "secondary": "#A2AAAD",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/IND.svg"
+  },
+  {
+    "abbr": "JAX",
+    "name": "Jacksonville Jaguars",
+    "city": "Jacksonville",
+    "mascot": "Jaguars",
+    "conference": "AFC",
+    "division": "AFC South",
+    "stadium": "EverBank Stadium",
+    "colors": {
+      "primary": "#006778",
+      "secondary": "#D7A22A",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/JAX.svg"
+  },
+  {
+    "abbr": "KC",
+    "name": "Kansas City Chiefs",
+    "city": "Kansas City",
+    "mascot": "Chiefs",
+    "conference": "AFC",
+    "division": "AFC West",
+    "stadium": "GEHA Field at Arrowhead Stadium",
+    "colors": {
+      "primary": "#E31837",
+      "secondary": "#FFB81C",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/KC.svg"
+  },
+  {
+    "abbr": "LAC",
+    "name": "Los Angeles Chargers",
+    "city": "Los Angeles",
+    "mascot": "Chargers",
+    "conference": "AFC",
+    "division": "AFC West",
+    "stadium": "SoFi Stadium",
+    "colors": {
+      "primary": "#0080C6",
+      "secondary": "#FFC20E",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/LAC.svg"
+  },
+  {
+    "abbr": "LAR",
+    "name": "Los Angeles Rams",
+    "city": "Los Angeles",
+    "mascot": "Rams",
+    "conference": "NFC",
+    "division": "NFC West",
+    "stadium": "SoFi Stadium",
+    "colors": {
+      "primary": "#003594",
+      "secondary": "#FFA300",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/LAR.svg"
+  },
+  {
+    "abbr": "LV",
+    "name": "Las Vegas Raiders",
+    "city": "Las Vegas",
+    "mascot": "Raiders",
+    "conference": "AFC",
+    "division": "AFC West",
+    "stadium": "Allegiant Stadium",
+    "colors": {
+      "primary": "#000000",
+      "secondary": "#A5ACAF",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/LV.svg"
+  },
+  {
+    "abbr": "MIA",
+    "name": "Miami Dolphins",
+    "city": "Miami",
+    "mascot": "Dolphins",
+    "conference": "AFC",
+    "division": "AFC East",
+    "stadium": "Hard Rock Stadium",
+    "colors": {
+      "primary": "#008E97",
+      "secondary": "#F58220",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/MIA.svg"
+  },
+  {
+    "abbr": "MIN",
+    "name": "Minnesota Vikings",
+    "city": "Minnesota",
+    "mascot": "Vikings",
+    "conference": "NFC",
+    "division": "NFC North",
+    "stadium": "U.S. Bank Stadium",
+    "colors": {
+      "primary": "#4F2683",
+      "secondary": "#FFC62F",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/MIN.svg"
+  },
+  {
+    "abbr": "NE",
+    "name": "New England Patriots",
+    "city": "New England",
+    "mascot": "Patriots",
+    "conference": "AFC",
+    "division": "AFC East",
+    "stadium": "Gillette Stadium",
+    "colors": {
+      "primary": "#002244",
+      "secondary": "#C60C30",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/NE.svg"
+  },
+  {
+    "abbr": "NO",
+    "name": "New Orleans Saints",
+    "city": "New Orleans",
+    "mascot": "Saints",
+    "conference": "NFC",
+    "division": "NFC South",
+    "stadium": "Caesars Superdome",
+    "colors": {
+      "primary": "#D3BC8D",
+      "secondary": "#101820",
+      "text": "#0B0F19"
+    },
+    "logo": "/logos/NO.svg"
+  },
+  {
+    "abbr": "NYG",
+    "name": "New York Giants",
+    "city": "New York",
+    "mascot": "Giants",
+    "conference": "NFC",
+    "division": "NFC East",
+    "stadium": "MetLife Stadium",
+    "colors": {
+      "primary": "#0B2265",
+      "secondary": "#A71930",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/NYG.svg"
+  },
+  {
+    "abbr": "NYJ",
+    "name": "New York Jets",
+    "city": "New York",
+    "mascot": "Jets",
+    "conference": "AFC",
+    "division": "AFC East",
+    "stadium": "MetLife Stadium",
+    "colors": {
+      "primary": "#125740",
+      "secondary": "#0C371D",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/NYJ.svg"
+  },
+  {
+    "abbr": "PHI",
+    "name": "Philadelphia Eagles",
+    "city": "Philadelphia",
+    "mascot": "Eagles",
+    "conference": "NFC",
+    "division": "NFC East",
+    "stadium": "Lincoln Financial Field",
+    "colors": {
+      "primary": "#004C54",
+      "secondary": "#A5ACAF",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/PHI.svg"
+  },
+  {
+    "abbr": "PIT",
+    "name": "Pittsburgh Steelers",
+    "city": "Pittsburgh",
+    "mascot": "Steelers",
+    "conference": "AFC",
+    "division": "AFC North",
+    "stadium": "Acrisure Stadium",
+    "colors": {
+      "primary": "#FFB612",
+      "secondary": "#101820",
+      "text": "#0B0F19"
+    },
+    "logo": "/logos/PIT.svg"
+  },
+  {
+    "abbr": "SEA",
+    "name": "Seattle Seahawks",
+    "city": "Seattle",
+    "mascot": "Seahawks",
+    "conference": "NFC",
+    "division": "NFC West",
+    "stadium": "Lumen Field",
+    "colors": {
+      "primary": "#002244",
+      "secondary": "#69BE28",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/SEA.svg"
+  },
+  {
+    "abbr": "SF",
+    "name": "San Francisco 49ers",
+    "city": "San Francisco",
+    "mascot": "49ers",
+    "conference": "NFC",
+    "division": "NFC West",
+    "stadium": "Levi's Stadium",
+    "colors": {
+      "primary": "#AA0000",
+      "secondary": "#B3995D",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/SF.svg"
+  },
+  {
+    "abbr": "TB",
+    "name": "Tampa Bay Buccaneers",
+    "city": "Tampa Bay",
+    "mascot": "Buccaneers",
+    "conference": "NFC",
+    "division": "NFC South",
+    "stadium": "Raymond James Stadium",
+    "colors": {
+      "primary": "#D50A0A",
+      "secondary": "#FF7900",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/TB.svg"
+  },
+  {
+    "abbr": "TEN",
+    "name": "Tennessee Titans",
+    "city": "Tennessee",
+    "mascot": "Titans",
+    "conference": "AFC",
+    "division": "AFC South",
+    "stadium": "Nissan Stadium",
+    "colors": {
+      "primary": "#0C2340",
+      "secondary": "#4B92DB",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/TEN.svg"
+  },
+  {
+    "abbr": "WAS",
+    "name": "Washington Commanders",
+    "city": "Washington",
+    "mascot": "Commanders",
+    "conference": "NFC",
+    "division": "NFC East",
+    "stadium": "Northwest Stadium",
+    "colors": {
+      "primary": "#5A1414",
+      "secondary": "#FFB612",
+      "text": "#FFFFFF"
+    },
+    "logo": "/logos/WAS.svg"
+  }
+]

@@ -1,0 +1,1 @@
+"""Router package for the 2026 NFL Predictions API."""
