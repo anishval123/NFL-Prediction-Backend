@@ -36,10 +36,36 @@ from . import live
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = live.DATA_DIR
 USERS_FILE = os.path.join(DATA_DIR, "users.json")
-# The AI model's exported picks (the same file the AI Insight panel renders);
-# read-only here, so the AI prediction is never rewritten by a result.
-PROJECTIONS_FILE = os.environ.get("NFL_PROJECTIONS_FILE") or os.path.join(
-    os.path.dirname(BASE_DIR), "frontend", "src", "data", "projections2026.json")
+
+
+def _default_projections_file():
+    """Where the AI model's recorded picks live.
+
+    Read-only, so an AI prediction is never rewritten by a result. Order:
+
+      1. data/projections2026.json  shipped with this service, so a standalone
+                                    deploy that checks out only this repo
+                                    (e.g. Render) can still grade the AI's
+                                    picks — without it every verdict is "none",
+                                    ``aiRecord.graded`` stays 0 and the UI
+                                    correctly refuses to show a record at all;
+      2. ../frontend/src/data/...   the local monorepo layout, where the
+                                    frontend ships the same snapshot.
+
+    NFL_PROJECTIONS_FILE overrides both when set.
+    """
+    candidates = (
+        os.path.join(BASE_DIR, "data", "projections2026.json"),
+        os.path.join(os.path.dirname(BASE_DIR), "frontend", "src", "data",
+                     "projections2026.json"),
+    )
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+    return candidates[0]
+
+
+PROJECTIONS_FILE = os.environ.get("NFL_PROJECTIONS_FILE") or _default_projections_file()
 
 COOKIE = "nfl_uid"
 USER_ID_RE = re.compile(r"^[A-Za-z0-9_-]{4,64}$")

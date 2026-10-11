@@ -932,12 +932,12 @@
    "home_abbr": "GB",
    "away_abbr": "CHI",
    "home_score": 14,
-   "away_score": 0,
+   "away_score": 7,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "7:11 - 2nd"
+   "detail": "0:39 - 2nd"
   },
   "W5-TEN-HOU": {
    "espn_id": "401872984",
@@ -946,12 +946,12 @@
    "home_abbr": "TEN",
    "away_abbr": "HOU",
    "home_score": 3,
-   "away_score": 6,
+   "away_score": 12,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "9:26 - 2nd"
+   "detail": "1:15 - 2nd"
   },
   "W5-MIA-CIN": {
    "espn_id": "401872982",
@@ -960,12 +960,12 @@
    "home_abbr": "MIA",
    "away_abbr": "CIN",
    "home_score": 7,
-   "away_score": 7,
+   "away_score": 14,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "12:44 - 2nd"
+   "detail": "5:23 - 2nd"
   },
   "W5-NE-LV": {
    "espn_id": "401872986",
@@ -979,7 +979,7 @@
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "11:17 - 2nd"
+   "detail": "2:00 - 2nd"
   },
   "W5-NO-MIN": {
    "espn_id": "401872987",
@@ -993,7 +993,7 @@
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "6:07 - 2nd"
+   "detail": "0:26 - 2nd"
   },
   "W5-NYJ-CLE": {
    "espn_id": "401872983",
@@ -1002,12 +1002,12 @@
    "home_abbr": "NYJ",
    "away_abbr": "CLE",
    "home_score": 7,
-   "away_score": 3,
+   "away_score": 6,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "13:20 - 2nd"
+   "detail": "2:07 - 2nd"
   },
   "W5-PIT-IND": {
    "espn_id": "401872985",
@@ -1016,12 +1016,12 @@
    "home_abbr": "PIT",
    "away_abbr": "IND",
    "home_score": 14,
-   "away_score": 6,
+   "away_score": 13,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "9:04 - 2nd"
+   "detail": "2:00 - 2nd"
   },
   "W5-WAS-NYG": {
    "espn_id": "401872988",
@@ -1029,16 +1029,16 @@
    "date": "2026-10-11",
    "home_abbr": "WAS",
    "away_abbr": "NYG",
-   "home_score": 6,
+   "home_score": 9,
    "away_score": 3,
    "winner": null,
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "9:46 - 2nd"
+   "detail": "1:58 - 2nd"
   }
  },
- "updated_at": "2026-10-11T17:54:06Z",
+ "updated_at": "2026-10-11T18:22:45Z",
  "provider": "cache",
  "last_error": null,
  "poll_seconds": 60
