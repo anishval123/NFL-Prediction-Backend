@@ -41,19 +41,53 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# CORS. Two client origins matter: local development on any localhost port, and
+# the deployed Vercel site. Vercel serves production from a project domain and
+# previews from <project>-<hash>.vercel.app, so the shipped defaults cover exact
+# production origins plus this project's own preview hostnames, without opening
+# the API to every site on the internet.
+#
+# Env knobs:
+#   NFL_CORS_ORIGINS       comma separated exact origins. REPLACES the default
+#                          list, so add your own domain here if you use one.
+#   NFL_CORS_ORIGIN_REGEX  EXTRA pattern, added to the built-in ones. It is
+#                          additive on purpose: a stale or blank value in a host's
+#                          environment can never lock the deployed site out, which
+#                          is exactly how the Vercel site ended up unable to read
+#                          any results.
+DEFAULT_CORS_ORIGINS = "https://nfl-prediction-frontend.vercel.app," \
+                       "https://nfl-predictions.vercel.app," \
+                       "http://localhost:5173,http://127.0.0.1:5173"
+
+DEFAULT_CORS_ORIGIN_REGEX = (
+    # any localhost / loopback port, for `npm run dev`
+    r"http://(localhost|127\.0\.0\.1)(:\d+)?"
+    # this project's Vercel production domain and preview deployments
+    r"|https://nfl-prediction[a-z0-9-]*\.vercel\.app"
+    r"|https://nfl-predictions[a-z0-9-]*\.vercel\.app"
+)
+
+_extra_origin_regex = os.environ.get("NFL_CORS_ORIGIN_REGEX", "").strip()
+CORS_ORIGIN_REGEX = (
+    f"(?:{DEFAULT_CORS_ORIGIN_REGEX})|(?:{_extra_origin_regex})"
+    if _extra_origin_regex else DEFAULT_CORS_ORIGIN_REGEX
+)
+
 app.add_middleware(
     CORSMiddleware,
-    # Set NFL_CORS_ORIGINS to your deployed frontend origin(s), comma separated,
-    # e.g. NFL_CORS_ORIGINS=https://picks.example.com
     allow_origins=[o.strip() for o in os.environ.get(
         "NFL_CORS_ORIGINS",
-        "http://localhost:5173,http://127.0.0.1:5173",
+        DEFAULT_CORS_ORIGINS,
     ).split(",") if o.strip()],
-    # Any localhost port during development, so `vite --port 5174` just works.
-    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origin_regex=CORS_ORIGIN_REGEX,
     allow_credentials=True,
     allow_methods=["*"],
+    # The SPA sends Content-Type, Cache-Control and X-User-Id, so any header must
+    # be allowed or the browser's preflight fails.
     allow_headers=["*"],
+    # Cache the preflight for 10 minutes so polling does not send an OPTIONS
+    # request on every tick.
+    max_age=600,
 )
 
 app.include_router(schedule.router)
