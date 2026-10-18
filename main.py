@@ -114,6 +114,7 @@ def root():
             "GET /standings/official": "official NFL table (final games only)",
             "GET /standings/projected": "official + this user's unresolved picks",
             "GET /predictions/evaluation": "per-game verdicts, records, both tables",
+            "GET /ai-projections": "published AI model snapshot (optional ?week=)",
             "GET /users/me": "caller identity + this user's stored predictions",
             "POST /users/me/predictions": "replace this user's predictions",
             "PUT /users/me/predictions/{game_id}": "upsert one prediction",

@@ -59,6 +59,24 @@ def _is_final(result):
     return result.get("status") == "final" or bool(result.get("winner"))
 
 
+def _is_tie(result):
+    """True when a *final* row ended level — the single tie rule for this API.
+
+    The provider's ``tie`` flag is authoritative, and the final score is
+    checked too, so any finished game whose scores are equal is a tie even if
+    a row somehow lost its flag. Everything that grades a result (official
+    standings, user verdicts, the AI record) reads this one function, so AI
+    stats and user stats can never disagree about what a tie is.
+    """
+    if not result or not _is_final(result):
+        return False
+    if result.get("tie"):
+        return True
+    hs = result.get("home_score")
+    aws = result.get("away_score")
+    return hs is not None and aws is not None and hs == aws
+
+
 def _merge_result(old, new):
     """Fold one provider row into what is already stored for that game.
 
@@ -279,6 +297,7 @@ def games_index():
 
 # Public alias: routers read the stored rows without the private name.
 is_final_result = _is_final
+is_tie = _is_tie
 
 
 def official_standings():
@@ -299,7 +318,7 @@ def official_standings():
         for abbr in (home, away):
             rec.setdefault(abbr, {"w": 0, "l": 0, "t": 0})
 
-        if res.get("tie"):
+        if _is_tie(res):
             rec[home]["t"] += 1
             rec[away]["t"] += 1
             continue
@@ -354,5 +373,5 @@ def get_status():
 
 __all__ = ["router", "poll_loop", "sync_once", "get_live", "get_status",
            "final_results", "all_results", "official_standings", "games_index",
-           "is_final_result", "POLL_SECONDS", "IDLE_POLL_SECONDS", "DATA_DIR",
-           "LIVE_FILE"]
+           "is_final_result", "is_tie", "POLL_SECONDS", "IDLE_POLL_SECONDS",
+           "DATA_DIR", "LIVE_FILE"]

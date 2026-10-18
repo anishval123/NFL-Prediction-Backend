@@ -27,8 +27,9 @@ import re
 import threading
 import uuid
 from datetime import datetime, timezone
+from typing import Optional
 
-from fastapi import APIRouter, Body, Request
+from fastapi import APIRouter, Body, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
 
 from . import live
@@ -72,7 +73,7 @@ USER_ID_RE = re.compile(r"^[A-Za-z0-9_-]{4,64}$")
 
 router = APIRouter(tags=["users"])
 _lock = threading.Lock()
-_projection_cache = {"mtime": None, "picks": {}}
+_projection_cache = {"mtime": None, "picks": {}, "payload": None}
 
 
 def _now():
@@ -179,22 +180,39 @@ def ai_picks():
     except (OSError, ValueError, AttributeError):
         picks = {}
 
-    _projection_cache.update({"mtime": mtime, "picks": picks})
+    _projection_cache.update({"mtime": mtime, "picks": picks,
+                              "payload": data if 'data' in locals() else None})
     return picks
 
 
-def verdict(result, pick):
-    """'correct' | 'incorrect' | 'none' once the game is final, else None.
+@router.get("/ai-projections")
+def get_ai_projections(week: Optional[int] = Query(default=None, ge=1, le=18)):
+    """Read-only published model output, including data-quality metadata."""
+    ai_picks()  # refresh the shared mtime cache
+    payload = _projection_cache.get("payload")
+    if not isinstance(payload, dict):
+        raise HTTPException(status_code=503, detail="AI projection snapshot is unavailable.")
+    if week is None:
+        return payload
+    out = dict(payload)
+    out["weeks"] = {str(week): (payload.get("weeks") or {}).get(str(week), [])}
+    return out
 
-    No pick is 'none' (the UI shows neither tick nor cross for it), a tie can
-    never be a correct pick, and a scheduled or live game is not graded at all.
+
+def verdict(result, pick):
+    """'correct' | 'incorrect' | 'tie' | 'none' once the game is final, else None.
+
+    A tie is excluded from every record: there was no winner to pick, so it is
+    neither correct nor incorrect and never counts as a decided game. A
+    scheduled or live game is not graded at all (None); a decided game with no
+    pick is 'none'.
     """
     if not live.is_final_result(result):
         return None
+    if live.is_tie(result):
+        return "tie"
     if not pick:
         return "none"
-    if result.get("tie"):
-        return "incorrect"
     return "correct" if result.get("winner") == pick else "incorrect"
 
 
@@ -209,6 +227,13 @@ def _score_line(result, game):
 
 
 def _tally(record):
+    """Fold one verdict bucket into a W-L record.
+
+    Ties live in their own bucket and are excluded entirely: accuracy is
+    ``correct / decided`` where decided only counts games that had a winner,
+    so a tie moves neither the string nor the percentage. ``graded`` can be 0
+    (no decided games yet), so the division is guarded.
+    """
     graded = record["correct"] + record["incorrect"]
     record["graded"] = graded
     record["pct"] = round(record["correct"] / graded, 4) if graded else 0.0
@@ -269,8 +294,11 @@ def evaluate(uid):
     games = live.games_index()
     ai = ai_picks()
 
-    record = {"correct": 0, "incorrect": 0, "none": 0}
-    ai_record = {"correct": 0, "incorrect": 0, "none": 0}
+    # Ties get their own bucket and are excluded from the record entirely:
+    # `graded` (correct + incorrect) is the number of decided games, so a tie
+    # never inflates the denominator of accuracy.
+    record = {"correct": 0, "incorrect": 0, "tie": 0, "none": 0}
+    ai_record = {"correct": 0, "incorrect": 0, "tie": 0, "none": 0}
 
     # Every finalized game, plus any game this user has a pick on.
     rows = []
@@ -287,7 +315,7 @@ def evaluate(uid):
         ai_result = verdict(result, ai_pick)
 
         for bucket, value in ((record, user_result), (ai_record, ai_result)):
-            if value in ("correct", "incorrect", "none"):
+            if value in ("correct", "incorrect", "tie", "none"):
                 bucket[value] += 1
 
         rows.append({
@@ -302,7 +330,7 @@ def evaluate(uid):
             "away_score": result.get("away_score"),
             "winner": result.get("winner"),
             "loser": result.get("loser"),
-            "tie": bool(result.get("tie")),
+            "tie": live.is_tie(result),
             "final_score": _score_line(result, game) if is_final else None,
             # Same facts under the names the UI/spec talks about.
             "actualWinner": result.get("winner"),
