@@ -1245,7 +1245,7 @@
    "loser": null,
    "tie": false,
    "status": "live",
-   "detail": "5:56 - 3rd"
+   "detail": "4:09 - 3rd"
   },
   "W6-KC-LAC": {
    "espn_id": "401873006",
@@ -1276,7 +1276,7 @@
    "detail": "Halftime"
   }
  },
- "updated_at": "2026-10-18T21:56:38Z",
+ "updated_at": "2026-10-18T22:00:55Z",
  "provider": "cache",
  "last_error": null,
  "poll_seconds": 60
